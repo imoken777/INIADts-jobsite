@@ -3,7 +3,7 @@ name: Deploy client
 on:
   workflow_run:
     workflows: ['Test']
-    branches: [main]
+    branches: [develop]
     types:
       - completed
 
@@ -16,6 +16,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
       - uses: actions/setup-node@v3
         with:
           node-version: 18
