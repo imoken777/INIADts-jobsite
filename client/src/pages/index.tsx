@@ -2,6 +2,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import React from 'react';
+import { Banner } from '../components/Banner/Banner';
 import { Carousel } from '../components/Carousel/Carousel';
 import { MemberIcons } from '../components/MemberIcons/MemberIcons';
 import { products } from '../data/products';
@@ -12,6 +13,7 @@ const Home = (): JSX.Element => {
 
   return (
     <Layout title={siteConfig.title} description="INIAD.tsサイト">
+      <Banner />
       <div className={styles.container}>
         <div className={styles.top}>
           <h1 className={styles.title}>INIAD.ts</h1>
