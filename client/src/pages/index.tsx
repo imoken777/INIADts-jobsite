@@ -1,4 +1,3 @@
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import React from 'react';
@@ -15,11 +14,6 @@ const Home = (): JSX.Element => {
     <Layout title={siteConfig.title} description="INIAD.tsサイト">
       <Banner />
       <div className={styles.container}>
-        <div className={styles.top}>
-          <h1 className={styles.title}>INIAD.ts</h1>
-          <p>INIAD(東洋大学情報連携学部)公認サークル</p>
-          <Link to="/about">詳しく見る</Link>
-        </div>
         <div className={styles.products}>
           <h2 className={styles.contentTitle}>2023年の主要プロダクト</h2>
           <Carousel carouselData={products} />

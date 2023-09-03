@@ -54,7 +54,7 @@ export const Banner = () => {
         typing();
       };
 
-      typingEffect(initialDescription, description, 100); // 初期テキストをここで使用
+      typingEffect(initialDescription, description, 100);
     }
   }, [isTitleEnd]);
 
@@ -66,7 +66,7 @@ export const Banner = () => {
       </div>
       <div className={styles.textBox}>
         <p className={styles.title}>INIAD.ts</p>
-        <p className={styles.description}>廃人エンジニア育成サークルの比類なき稼働時間</p>
+        <p className={styles.description} />
       </div>
     </div>
   );
