@@ -1,7 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Banner.module.css';
 
 export const Banner = () => {
+  const [isTitleEnd, setIsTitleEnd] = useState(false);
+  const initialDescription = '廃人エンジニア育成サークル';
+
+  useEffect(() => {
+    const typingEffect = (
+      text: string,
+      element: Element | null,
+      delay: number,
+      onEnd: () => void
+    ) => {
+      let i = 0;
+      const typing = () => {
+        if (element !== null && i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, delay);
+        } else {
+          onEnd();
+        }
+      };
+      typing();
+    };
+
+    const title = document.querySelector(`.${styles.title}`);
+    if (title !== null && title.textContent !== null) {
+      const titleText = title.textContent || '';
+      title.textContent = '';
+
+      typingEffect(titleText, title, 200, () => {
+        setIsTitleEnd(true);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const description = document.querySelector(`.${styles.description}`);
+    if (description === null) return;
+    description.textContent = '';
+
+    if (isTitleEnd) {
+      const typingEffect = (text: string, element: Element | null, delay: number) => {
+        let i = 0;
+        const typing = () => {
+          if (element !== null && i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(typing, delay);
+          }
+        };
+        typing();
+      };
+
+      typingEffect(initialDescription, description, 100); // 初期テキストをここで使用
+    }
+  }, [isTitleEnd]);
+
   return (
     <div className={styles.container}>
       <div className={styles.logoBox}>
